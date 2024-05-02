@@ -54,7 +54,7 @@ public class BackendApplication {
 				int tmp = rng.nextInt(paymentTypes.length);
 				for (int i = 0 ; i < nPayment ; i++) {
 					Payment payment = Payment.builder()
-							.amount(rng.nextDouble(1_000, 20_000))
+							.amount(Math.floor(rng.nextDouble(1_000, 20_000)))
 							.type(paymentTypes[tmp])
 							.status(PaymentStatus.CREATED)
 							.date(LocalDate.now())

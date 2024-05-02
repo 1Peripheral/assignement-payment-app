@@ -27,6 +27,8 @@ import {AuthGuard} from "./guards/auth.guard";
 import {AuthAdminGuard} from "./guards/auth.admin.guard";
 import {HttpClientModule} from "@angular/common/http";
 import {MatTableModule} from "@angular/material/table";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSortModule} from "@angular/material/sort";
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import {MatTableModule} from "@angular/material/table";
     ReactiveFormsModule,
     HttpClientModule,
     MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [
     provideAnimationsAsync(),

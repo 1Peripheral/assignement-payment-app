@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
+import {MatPaginator} from "@angular/material/paginator";
+import {MatSort} from "@angular/material/sort";
 
 @Component({
   selector: 'app-payments',
@@ -18,6 +20,8 @@ export class PaymentsComponent implements OnInit {
     'status',
     'type',
   ];
+  @ViewChild(MatPaginator) paginator! : MatPaginator;
+  @ViewChild(MatSort)  sort! : MatSort
   constructor(private http : HttpClient) {
   }
 
@@ -27,6 +31,8 @@ export class PaymentsComponent implements OnInit {
         next : data => {
           this.payments = data;
           this.dataSource = new MatTableDataSource(this.payments);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
         },
         error : err => {
           console.log(err);
