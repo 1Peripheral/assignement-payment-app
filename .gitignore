@@ -29,13 +29,13 @@ frontend-student-app/yarn-error.log
 .history/*
 
 # Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
+frontend-student-app/.angular/cache
+frontend-student-app/.sass-cache/
+frontend-student-app/connect.lock
+frontend-student-app/coverage
+frontend-student-app/libpeerconnection.log
+frontend-student-app/estem.log
+frontend-student-app/typings
 
 # System files
 .DS_Store
