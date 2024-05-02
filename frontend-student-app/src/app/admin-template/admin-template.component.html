@@ -7,17 +7,25 @@
   <span style="flex: auto"></span>
   <button mat-button routerLink="/admin/home">Home</button>
   <button mat-button routerLink="/admin/profile">Profile</button>
-  <button mat-button [matMenuTriggerFor]="importMenu">
-    <mat-icon iconPositionEnd>
-      keyboard_arrow_down
-    </mat-icon>
-    Import
-  </button>
+  @if (authService.roles.includes('ADMIN')) {
+    <button mat-button [matMenuTriggerFor]="importMenu">
+
+      <mat-icon iconPositionEnd>
+        keyboard_arrow_down
+      </mat-icon>
+      Import
+    </button>
+  }
   <mat-menu #importMenu>
     <button mat-menu-item routerLink="/admin/load-students">Load Students</button>
     <button mat-menu-item routerLink="/admin/load-payments">Load Payments</button>
   </mat-menu>
-  <button mat-raised-button routerLink="/admin/login" color="accent">Logout</button>
+  <button mat-button>
+    @if (authService.isAuthenticated) {
+      {{authService.username}}
+    }
+  </button>
+  <button mat-raised-button routerLink="/admin/login" color="accent" (click)="logout()">Logout</button>
 </mat-toolbar>
 
 <mat-drawer-container>
